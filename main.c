@@ -29,9 +29,10 @@ int escolha = 0;
     printf("=====MENU PRODUTOS=====\n ");
         printf("1 - Cadastrar Produto\n ");
         printf("2 - Buscar Produtos\n ");
-        printf("3 - Exibir estoque\n ");
+        printf("3 - Exibir Estoque\n ");
         printf("4 - Editar Produtos\n");
-        printf("5 - Sair\n ");
+        printf("5 - Alterar Estoque\n");
+        printf("0 - Sair\n ");
         scanf("%i", &escolha);
 }
 ////                    seção produtos                           ////
