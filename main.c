@@ -107,32 +107,50 @@ void exibirInfoProduto(Produto produtos[], int i){
     printf("Preco: %.2f\n", produtos[i].preco);
 } // funcao que sera usada para exibir as informacoes dos produtos tanto na funcao exibir_estoque quanto na buscar_produto
 
-
+//pedro
 void buscar_codigo(Produto produtos[],int quantidade){ //função buscar codigo| procura produtos e quantidade na struct Produto
+    if(quantidade==0){
+        printf("Nenhum produto cadastrado.");
+        return;
+    }
     char codigo_busca[MAX]; //variavel que guarda o codigo que o usuario quer buscar
     printf("Digite o codigo do produto do produto que deseja buscar: ");
-    scanf("%s",codigo_busca);
-    int encontrado = 0; // variavel que verifica se o produto foi
-
+    scanf("%s",codigo_busca); //guarda o input do usuario na var codigo_busca
+    int encontrado = 0;// variavel que verifica se o produto foi encontrado
     for(int i =0;i<quantidade;i++){// for para procurar na var quantidade
         if (strcmp(produtos[i].codigo,codigo_busca)==0){ //função da biblioteca string para comparar strings| compara produtos e codigo_busca
-            printf("\n--- Produto encontrado ---\n"); // print para mostras as informações da busca
-            printf("Nome: %s",produtos[i].nome); // print para mostras as informações da busca
-            printf("Codigo:  %s",produtos[i].codigo); // print para mostras as informações da busca 
-            printf("Categoria %s",produtos[i].categoria); // print para mostras as informações da busca 
-            printf("Quantidade em estoque %d",produtos[i].qtd_estoque); // print para mostras as informações da busca
-            printf("Preco: %.2f",produtos[i].preco); // print para mostras as informações da busca
-
-            encontrado=1; // se encontrado for 1, para o laço
+            exibirInfoProduto(produtos, i);// chama a função exibir info produto
+            encontrado=1; // se encontrado for 1, faz o laço parar
             break;
-
         }
-        
     }
     if(encontrado==0){//se for rodar e não achar nada, mostrar no print que não achou nenhum produto
             printf("Produto não encontrado.");
         }
-}
+    }//pedro|procurar codigo
+
+    //pedro|buscar por nome
+    void buscar_nome(Produto produtos[],int quantidade){
+        if(quantidade==0){
+            printf("Nenhum produto cadastrado.");
+            return;
+        }
+        char nome_busca[MAX]; // variavel que guarda o nome que o usuario quer buscar
+        printf("Digite o nome do produto que deseja buscar.");
+        scanf(" %[^\n]",nome_busca); //guarda o input do usuario na var nome_busca
+        int encontrado =0; // variavel que verifica se o produto foi encontrado
+        for(int i=0;i<quantidade;i++){
+            if(strcmp(produtos[i].nome,nome_busca)==0){
+                 exibirInfoProduto(produtos, i);// chama a função exibir info produto
+                 encontrado=1;// se encontrado for 1, faz o laço para
+                 }
+            }
+            if(encontrado==0){
+                printf("Produto nao encontrado.");
+            }
+        }//pedro buscar por nome
+
+//pedro
 
 void exibir_estoque(Produto produtos[],int quantidade){
     if(quantidade==0){
@@ -189,7 +207,23 @@ int opcao;
                 cadastrar_produto();
                 break;
             case 2:
-                break;
+            //pedro|case
+            int opc_busca;//var para guardar a opcao que o usuario digitou
+            printf("=====Buscar produtos=====");
+            printf("1 - Buscar por codigo.");
+            printf("2 - Buscar por nome.");
+            print("Digite uma opcao: ");
+            scanf("d",&opc_busca);
+
+            if(opc_busca ==1){ //se o usuario escolher 1, chama a função buscar por codigo
+                busca_codigo(produtos,quantidade);
+            }else if(opc_busca ==2){ // se o usuario escolher 2, chama a funcao buscar por nome
+                busca_nome(produtos,quantidade);
+            }else{// se ele nao digitar nada, diz que nenhuma opcao foi encontrada
+                printf("Opcao nao encontrada.");
+            }
+            break;//pedro|case2
+               
             case 3:
                 break;
             case 4:
