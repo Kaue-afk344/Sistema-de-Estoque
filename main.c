@@ -21,6 +21,17 @@ Produto *produtos = NULL;
 //esta variavel se refere a quantidade de produtos no vetor de produtos
 int quantidade = 0;
 
+void exibirInfoProduto(Produto produtos[], int i){
+    printf("PRODUTO %i",i+1 );
+    printf("%s",produtos[i].nome);
+    printf("Codigo: %s",produtos[i].codigo);
+    printf("Categoria: %s",produtos[i].categoria);
+    printf("Tamanho: %s",produtos[i].tamanho);
+    printf("Quantidade em estoque: %d unidades", produtos[i].qtd_estoque);
+    printf("Preco: %.2f\n", produtos[i].preco);
+} // funcao que sera usada para exibir as informacoes dos produtos tanto na funcao exibir_estoque quanto na buscar_produto
+
+
 void buscar_codigo(Produto produtos[],int quantidade){ //função buscar codigo| procura produtos e quantidade na struct Produto
     char codigo_busca[MAX]; //variavel que guarda o codigo que o usuario quer buscar
     printf("Digite o codigo do produto do produto que deseja buscar: ");
@@ -47,6 +58,33 @@ void buscar_codigo(Produto produtos[],int quantidade){ //função buscar codigo|
         }
 }
 
+void exibir_estoque(Produto produtos[],int quantidade){
+    if(quantidade==0){
+        printf("Nenhum produto cadastrado");
+        return;
+    } // se não houver nenhum produto cadastrado ele printa a mensagem e retorna
+
+    printf("=====EXIBIR ESTOQUE=====\n");
+
+    int choice; // o usuario escolhe se quer exibir o estoque total ou por categoria
+    printf("1 - Exibir estoque total\n "); // menu de escolha
+    printf("2 - Exibir por categoria\n ");
+    printf("Digite uma opcao: ");
+    scanf("%i",&choice);
+
+    if(choice==1){
+        printf("=====PRODUTOS CADASTRADOS=====\n");
+    
+        for(int i = 0; i<quantidade; i++){
+            exibirInfoProduto(produtos, i); // chamada da funcao que exibe as informacoes do produto
+        }
+    }else if(choice==2){
+        //Kauê vai implementar por categoria
+    }else{
+        printf("Opcao invalida");
+    }
+}
+
 int menu_produtos(){
     int escolha;
     printf("\n=====MENU PRODUTOS=====\n ");
@@ -59,7 +97,8 @@ int menu_produtos(){
         printf("Digite uma opcao: ");
         scanf("%i", &escolha);
     return escolha;
-}
+} // funcao que exibe o menu do sistema de estoque e retorna o inteiro digitado (escolha) pelo usuario
+
 ////                    seção produtos                           ////
 
 
