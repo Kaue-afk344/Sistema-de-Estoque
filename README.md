@@ -1,26 +1,26 @@
 ﻿# Sistema-de-Estoque
 Kaio
 * Cadastrar Produtos
-* Verificar código
-* Verificar nome
+  * Verificar código
+  * Verificar nome
 
 
 Pedro
 * Buscar Produtos
-* Busca por codigo
-* Busca por nome
+  * Busca por codigo
+  * Busca por nome
   
 Henrique
 * Buscar Produtos
-* Busca por tamanho
+  * Busca por tamanho
 * Exibir Estoque
-* Todo estoque]
+  * Todo estoque
 
   
-Pessoa 4
+Raphael
 * Alterar Estoque
-* Registrar Entrada
-* Registrar Venda
+  * Registrar Entrada
+  * Registrar Venda
 
   
 Pessoa 5
@@ -28,7 +28,7 @@ Pessoa 5
 * Menu de edição
 
   
-Pessoa 6
+Kauê
 * Exibir Estoque
-* Por categoria
-* Baixa Quantidade
+  * Por categoria
+  * Baixa Quantidade
